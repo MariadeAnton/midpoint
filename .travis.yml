@@ -1,6 +1,9 @@
 sudo: false
 dist: trusty
 language: java
+
+script: "mvn clean install"
+
 addons:
   hostname: localhost
   apt:
