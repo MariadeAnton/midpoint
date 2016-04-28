@@ -3,7 +3,7 @@ dist: trusty
 language: java
 
 install: true
-script: "mvn install"
+script: "travis_wait 30 mvn install"
 
 addons:
   hostname: localhost
