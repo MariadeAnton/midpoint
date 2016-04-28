@@ -3,7 +3,10 @@ dist: trusty
 language: java
 addons:
   hostname: localhost
-  
+  apt:
+    packages:
+      - oracle-java8-installer
+
 jdk:
   - openjdk7
   - oraclejdk7
