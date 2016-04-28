@@ -2,7 +2,8 @@ sudo: false
 dist: trusty
 language: java
 
-script: "mvn clean install"
+install: true
+script: "mvn install"
 
 addons:
   hostname: localhost
@@ -14,5 +15,5 @@ addons:
 jdk:
   - openjdk7
   - oraclejdk7
-  - openjdk8
+  #- openjdk8
   - oraclejdk8
