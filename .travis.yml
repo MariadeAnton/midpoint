@@ -2,14 +2,18 @@ sudo: false
 dist: trusty
 language: java
 
-install: false
-script: travis_wait 120 mvn install
+#skips default install - see script bellow
+install: true
+
+# custom script is used so build and tests are done in one mvn command, separating it (as Travis does by default) leads to problem with ConnId (notably DummyResource)
+# travis_wait is used for integration tests workround as default Travis settings kills build if no message is printed to stdout for 10 mins
+script: travis_wait 120 mvn clean install
 
 addons:
-  hostname: localhost
+  hostname: localhost # workaround for short hostname
   apt:
     packages:
-      - oracle-java8-installer
+      - oracle-java8-installer # install newest JDK8
       #- openjdk-8-jdk
 
 jdk:
