@@ -10,16 +10,17 @@ install: true
 # travis_wait is used for integration tests workround as default Travis settings kills build if no message is printed to stdout for 10 mins
 script:
   #- sudo apt-get update && sudo apt-get install oracle-java8-installer
-  - curl -L --cookie 'oraclelicense=accept-securebackup-cookie;'  http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip -o /tmp/policy.zip && sudo unzip -j -o /tmp/policy.zip *.jar -d /usr/lib/jvm/java-8-oracle-amd64/jre/lib/security && rm /tmp/policy.zip
-  - travis_wait 120 mvn clean install
+  #- curl -L --cookie 'oraclelicense=accept-securebackup-cookie;'  http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip -o /tmp/policy.zip && sudo unzip -j -o /tmp/policy.zip *.jar -d /usr/lib/jvm/java-8-oracle-amd64/jre/lib/security && rm /tmp/policy.zip
+  #- travis_wait 120 mvn clean install
+  - mvn clean install
 
 addons:
   hostname: localhost # workaround for short hostname
-  apt:
-    packages:
-      - oracle-java8-installer # install newest JDK8
+  #apt:
+   # packages:
+    #  - oracle-java8-installer # install newest JDK8
 
 jdk:
-  # - openjdk7
-  # - oraclejdk7
-  - oraclejdk8
+   - openjdk7
+   - oraclejdk7
+  # - oraclejdk8
